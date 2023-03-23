@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>371</y>
+      <w>259</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Workbook
+--
+
++ title: String {NotBlank, Length(0, 75)}
++ abstract$: String {NotBlank, Length(0, 75)}
++ type: WorbookType
++ timePeriod: Double
++ furtherInformation: String {URL}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>35</x>
+      <y>0</y>
+      <w>259</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Form&gt;&gt;
+StudentDashboard
+--
++ totalNumberOfTheoryWorkbook: Integer
++ totalNumberOfHandsOnWorkbook: Integer
++ averagePeriodOfTheActivitiesPerWorkbook: Double
++ minimunPeriodOfTheActivitiesPerWorkbook: Double
++ maxumumPeriodOfTheActivitiesPerHerWorkbook: Double
++ desviationOfPeriodOfTheActivitiesPerWorkbook: Double	
++ averageLearningTimePerCourse: Double
++ desviationLearningTimePerCourse: Double
++ minimunLearningTimePerCourse: Double
++ maximumLearningTimePerCourse: Double
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>175</y>
+      <w>259</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Entity&gt;&gt;
+Enrolment
+--
++ code: String {NotBlank, Pattern("[A-Z]{1,3} [0-9]{3}"}
++ motivation: String {NotBlank, Length(0, 75)}
++ goals: String {NotBlank, Length(0, 100)}
++ workTime: Double
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>28</x>
+      <y>203</y>
+      <w>259</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>bg=green
+&lt;&lt;Role&gt;&gt;
+Student
+--
++ statement: String {NotBlank, Length(0, 75)}
++ strongFeatures: String {NotBlank, Length(0, 100)}
++ weakFeatures: String {NotBlank, Length(0, 100)}
++ furtherInformation: String {URL}
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>245</y>
+      <w>133</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>170.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>511</x>
+      <y>273</y>
+      <w>35</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,3 @@
+key,code,conclusion,strongPoints,weakPoints,key:auditor
+audit-01,A1234,"conclusion1,conclusion2","sp1,sp2","np1,np2",auditor-01
+audit-02,A2234,"conclusion3","sp3,sp4","np3,np4",auditor-02

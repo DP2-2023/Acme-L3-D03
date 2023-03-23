@@ -1,0 +1,4 @@
+key,moment,title,message,critical,link
+bulletin-01,"2021/02/16 10:00","a","b",false,""
+bulletin-02,"2021/01/01 19:00","Important","last day to sign up",true,"http://signUpNow.com"
+bulletin-03,"2020/12/22 12:00","Advertisement","start after christmas with us", false,""

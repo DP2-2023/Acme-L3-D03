@@ -1,0 +1,4 @@
+key,currency,is-system-currency
+currency-01,"EUR",true
+currency-02,"USD",false
+currency-03,"GBP",false

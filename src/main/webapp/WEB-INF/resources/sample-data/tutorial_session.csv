@@ -1,0 +1,3 @@
+key,title,resume,sessionType,periodStart,periodEnd,information,key:tutorial
+tutorialSession-01,"Title one","Summary 1",THEORYSESSION,2021/02/13 19:39,2021/02/14 19:39,"http://www.example.com/",tutorial-01
+tutorialSession-02,"Title two","Summary 1",HANDSONSESSION,2021/02/13 19:39,2021/02/14 19:39,"http://www.example.com/",tutorial-01

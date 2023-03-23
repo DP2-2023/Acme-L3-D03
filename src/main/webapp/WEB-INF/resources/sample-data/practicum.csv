@@ -1,0 +1,4 @@
+key,code,title,abstract$,goals,estimatedTotalTime,key:course,key:company
+practicum-01,"AB1234","a","a","a",2.0,course-01,company-01
+practicum-02,"P1011","Programming with Python","Students programming Practical applications of programming, such as web development and data analysi","students solve practical problems. They will also developweb applications and perform data analysis.",80.0,course-01,company-02
+practicum-03,"ENG1012","English Composition","including grammar syntax and organization","write clear and well-organized essays",6.0,course-02,company-03

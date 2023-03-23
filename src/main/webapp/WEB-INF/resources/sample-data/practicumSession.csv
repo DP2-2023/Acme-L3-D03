@@ -1,0 +1,5 @@
+key,title,abstract$,sessionStartDate,sessionEndDate,link,key:practicum
+practicum-session-01,a,b,2023/03/16 19:00,2023/03/16 19:30,,practicum-01
+practicum-session-02,start,start your first practicum session,2023/05/16 09:30,2023/05/16 11:30,http://firstSession.com,practicum-02
+practicum-session-03,middle,continue your practicum session,2023/05/26 09:30,2023/05/26 12:00,,practicum-02
+practicum-session-04,end,finish your last practicum session,2023/06/01 12:30,2023/06/01 14:30,http://lastSession.com,practicum-02

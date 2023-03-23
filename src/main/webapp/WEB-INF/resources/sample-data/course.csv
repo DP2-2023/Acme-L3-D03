@@ -1,0 +1,4 @@
+key,code,title,abstract$,course-type,price,further-information
+course-01,AAA 000,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",THEORETICAL,EUR 10.99,
+course-02,Z 999,"A","A",HANDS_ON,EUR 0.01,"http://www.example.es/"
+course-03,NX 651,"On the balance of balances","A course on balance and balances",BALANCED,EUR 999.99,"http://www.example.es/"

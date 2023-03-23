@@ -1,0 +1,3 @@
+key,firm,professionalId,certifications,link,key:user-account
+auditor-01,firm1,01,"programmer, analyst",http://www.example.org,user-account-auditor1
+auditor-02,firm2,02,"designer,tester",http://www.example.org,user-account-auditor2

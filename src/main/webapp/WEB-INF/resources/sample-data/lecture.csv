@@ -1,0 +1,5 @@
+key,title,abstract$,learning-time,body,type,further-information,key:lecturer
+lecture-01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",1.5,"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",THEORETICAL,,lecturer-01
+lecture-02,"A practical lecture.","Lengthy and interesting contents",0.01,"Practical applications of some theoretical topics",HANDS_ON,,lecturer-01
+lecture-03,"A theoretical lecture.","Lengthy and uninteresting contents",999.9,"Theoretical aspects of some practical topics",THEORETICAL,,lecturer-01
+lecture-04,"A","A",3.5,"A",HANDS_ON,"http://www.example.com/",lecturer-02
