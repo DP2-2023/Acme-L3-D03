@@ -10,7 +10,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorConfigCreateService extends AbstractService<Administrator, Config> {
+public class AdministratorConfigUpdateService extends AbstractService<Administrator, Config> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -22,7 +22,11 @@ public class AdministratorConfigCreateService extends AbstractService<Administra
 
 	@Override
 	public void check() {
-		super.getResponse().setChecked(true);
+		boolean status;
+
+		status = super.getRequest().hasData("id", int.class);
+
+		super.getResponse().setChecked(status);
 	}
 
 	@Override
@@ -33,10 +37,10 @@ public class AdministratorConfigCreateService extends AbstractService<Administra
 	@Override
 	public void load() {
 		Config object;
+		int id;
 
-		object = new Config();
-		object.setConfigKey("");
-		object.setValue("");
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneConfigById(id);
 
 		super.getBuffer().setData(object);
 	}
@@ -51,11 +55,6 @@ public class AdministratorConfigCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Config object) {
 		assert object != null;
-
-		boolean confirmation;
-
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override

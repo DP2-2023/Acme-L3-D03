@@ -47,7 +47,7 @@ public class AdministratorConfigListAllService extends AbstractService<Administr
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "moment", "status");
+		tuple = super.unbind(object, "configKey", "value");
 
 		super.getResponse().setData(tuple);
 	}
