@@ -35,8 +35,6 @@ public class AdministratorConfigCreateService extends AbstractService<Administra
 		Config object;
 
 		object = new Config();
-		object.setConfigKey("");
-		object.setValue("");
 
 		super.getBuffer().setData(object);
 	}
@@ -51,11 +49,6 @@ public class AdministratorConfigCreateService extends AbstractService<Administra
 	@Override
 	public void validate(final Config object) {
 		assert object != null;
-
-		boolean confirmation;
-
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override

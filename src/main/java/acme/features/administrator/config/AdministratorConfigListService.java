@@ -12,7 +12,7 @@ import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 
 @Service
-public class AdministratorConfigListAllService extends AbstractService<Administrator, Config> {
+public class AdministratorConfigListService extends AbstractService<Administrator, Config> {
 
 	// Internal state ---------------------------------------------------------
 

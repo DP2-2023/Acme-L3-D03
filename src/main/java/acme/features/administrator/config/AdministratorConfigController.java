@@ -16,13 +16,19 @@ public class AdministratorConfigController extends AbstractController<Administra
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorConfigListAllService	listAllService;
+	protected AdministratorConfigListService	listService;
 
 	@Autowired
 	protected AdministratorConfigShowService	showService;
 
 	@Autowired
 	protected AdministratorConfigCreateService	createService;
+
+	@Autowired
+	protected AdministratorConfigUpdateService	updateService;
+
+	@Autowired
+	protected AdministratorConfigDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -31,7 +37,9 @@ public class AdministratorConfigController extends AbstractController<Administra
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
-		super.addCustomCommand("list-all", "list", this.listAllService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addBasicCommand("list", this.listService);
 	}
 
 }
