@@ -17,10 +17,10 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.lecturer.form.label.alma-mater" path="almaMater"/>
-	<acme:input-textbox code="authenticated.lecturer.form.label.resume" path="resume"/>
-	<acme:input-textbox code="authenticated.lecturer.form.label.qualifications" path="qualifications"/>
-	<acme:input-textbox code="authenticated.lecturer.form.label.further-information" path="furtherInformation"/>
+	<acme:input-textarea code="authenticated.lecturer.form.label.resume" path="resume"/>
+	<acme:input-textarea code="authenticated.lecturer.form.label.qualifications" path="qualifications"/>
+	<acme:input-url code="authenticated.lecturer.form.label.further-information" path="furtherInformation"/>
 	
-	<acme:submit test="${_command == 'create'}" code="authenticated.consumer.form.button.create" action="/authenticated/lecturer/create"/>
-	<acme:submit test="${_command == 'update'}" code="authenticated.consumer.form.button.update" action="/authenticated/lecturer/update"/>
+	<acme:submit test="${_command == 'create'}" code="authenticated.lecturer.form.button.create" action="/authenticated/lecturer/create"/>
+	<acme:submit test="${_command == 'update'}" code="authenticated.lecturer.form.button.update" action="/authenticated/lecturer/update"/>
 </acme:form>
