@@ -17,5 +17,6 @@ any.course.form.label.further-information = Further information
 
 any.course.list.label.code = Code
 any.course.list.label.title = Title
+any.course.list.label.course-type = Type
 any.course.list.label.price = Price
 
