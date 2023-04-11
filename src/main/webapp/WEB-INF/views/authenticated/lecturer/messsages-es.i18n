@@ -11,7 +11,7 @@
 authenticated.lecturer.form.label.alma-mater = Alma mater
 authenticated.lecturer.form.label.resume = Currículum
 authenticated.lecturer.form.label.qualifications = Certificaciones
-authenticated.lecturer.form.label.further-information = Más información
+authenticated.lecturer.form.label.further-information = Más información (opcional)
 
 authenticated.lecturer.form.button.create = Registrar
 authenticated.lecturer.form.button.update = Actualizar
