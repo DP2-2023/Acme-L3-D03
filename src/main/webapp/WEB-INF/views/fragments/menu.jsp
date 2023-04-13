@@ -49,6 +49,8 @@
 		
 		<acme:menu-option code="master.menu.lecturer" access="hasRole('Lecturer')">
 			<acme:menu-suboption code="master.menu.lecturer.lecture.list" action="/lecturer/lecture/list-mine"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.lecturer.dashboard" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>
