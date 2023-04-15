@@ -43,6 +43,9 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any.banner.list" action="/any/banner/list" access="!hasRole('Administrator')"/>
+		<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list" access="hasRole('Administrator')"/>
 	</acme:menu-left>
 
 	<acme:menu-right>
