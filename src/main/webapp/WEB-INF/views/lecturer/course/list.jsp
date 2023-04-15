@@ -16,12 +16,13 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="lecturer.lecture.list.label.title" path="title" width="80%"/>
-	<acme:list-column code="lecturer.lecture.list.label.type" path="type" width="10%"/>
-	<acme:list-column code="lecturer.lecture.list.label.is-published" path="isPublished" width="10%"/>
+	<acme:list-column code="lecturer.course.list.label.code" path="code" width="10%"/>
+	<acme:list-column code="lecturer.course.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="lecturer.course.list.label.type" path="type" width="10%"/>
+	<acme:list-column code="lecturer.course.list.label.is-published" path="isPublished" width="10%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 
 <jstl:if test="${_command == 'list-mine'}">
-	<acme:button code="lecturer.lecture.list.button.create" action="/lecturer/lecture/create"/>
+	<acme:button code="lecturer.course.list.button.create" action="/lecturer/course/create"/>
 </jstl:if>	

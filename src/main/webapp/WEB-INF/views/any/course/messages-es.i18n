@@ -11,12 +11,12 @@
 any.course.form.label.code = Código
 any.course.form.label.title = Título
 any.course.form.label.abstract$ = Resumen
-any.course.form.label.course-type = Tipo
+any.course.form.label.type = Tipo
 any.course.form.label.price = Precio
 any.course.form.label.further-information = Más información
 
 any.course.list.label.code = Código
 any.course.list.label.title = Título
-any.course.list.label.course-type = Tipo
+any.course.list.label.type = Tipo
 any.course.list.label.price = Precio
 

@@ -8,21 +8,21 @@
 # purposes.  The copyright owner does not offer lecturer warranties or representations, nor do
 # they accept lecturer liabilities with respect to them.
 
-lecturer.lecture.form.label.code = Código
 lecturer.lecture.form.label.title = Título
 lecturer.lecture.form.label.abstract$ = Resumen
-lecturer.lecture.form.label.lecture-type = Tipo
-lecturer.lecture.form.label.price = Precio
+lecturer.lecture.form.label.learning-time = Duración
+lecturer.lecture.form.label.body = Cuerpo
+lecturer.lecture.form.label.type = Tipo
 lecturer.lecture.form.label.further-information = Más información
+lecturer.lecture.form.label.is-published = Publicada
 
 lecturer.lecture.form.button.update = Actualizar
 lecturer.lecture.form.button.delete = Borrar
 lecturer.lecture.form.button.publish = Publicar
 lecturer.lecture.form.button.create = Crear
 
-lecturer.lecture.list.label.code = Código
 lecturer.lecture.list.label.title = Título
-lecturer.lecture.list.label.lecture-type = Tipo
-lecturer.lecture.list.label.price = Precio
+lecturer.lecture.list.label.type = Tipo
+lecturer.lecture.list.label.is-published = Publicada
 
 lecturer.lecture.list.button.create = Crear

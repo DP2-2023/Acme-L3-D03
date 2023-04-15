@@ -53,6 +53,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.lecturer = Profesor
 master.menu.lecturer.lecture.list = Ver clases
+master.menu.lecturer.course.list = Ver cursos
 master.menu.lecturer.dashboard = Panel de profesor
 
 # master.menu.user-account ####################################################

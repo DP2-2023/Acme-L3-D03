@@ -47,7 +47,7 @@ public class Lecture extends AbstractEntity {
 	@URL
 	protected String			furtherInformation;
 
-	protected boolean			published;
+	protected boolean			isPublished;
 
 	// Derived attributes -----------------------------------------------------
 

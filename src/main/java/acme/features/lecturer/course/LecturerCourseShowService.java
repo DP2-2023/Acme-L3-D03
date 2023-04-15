@@ -1,5 +1,5 @@
 /*
- * AnyCourseShowService.java
+ * LecturerCourseShowService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,23 +10,25 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.lecturer.course;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class LecturerCourseShowService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected LecturerCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -43,12 +45,22 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		final Course course;
+		int masterId;
+		Course course;
+		final Lecturer lecturer;
 
-		id = super.getRequest().getData("id", int.class);
-		course = this.repository.findOneCourseById(id);
-		status = course != null && course.isPublished();
+		lecturer = this.repository.findOneLecturerById(super.getRequest().getPrincipal().getActiveRoleId());
+
+		masterId = super.getRequest().getData("id", int.class);
+		course = this.repository.findOneCourseById(masterId);
+
+		status = course != null && lecturer != null;
+
+		// Check course is of lecturer
+		if (status) {
+			final Collection<Course> lecturerCourses = this.repository.findManyCoursesByLecturerId(lecturer.getId());
+			status = lecturerCourses.contains(course);
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -70,7 +82,7 @@ public class AnyCourseShowService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "type", "price", "furtherInformation");
+		tuple = super.unbind(object, "code", "title", "abstract$", "type", "price", "furtherInformation", "isPublished");
 
 		super.getResponse().setData(tuple);
 	}

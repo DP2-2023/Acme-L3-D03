@@ -1,5 +1,5 @@
 /*
- * AnyCourseListService.java
+ * LecturerCourseListMineService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.lecturer.course;
 
 import java.util.Collection;
 
@@ -18,17 +18,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Lecturer;
 
 @Service
-public class AnyCourseListService extends AbstractService<Any, Course> {
+public class LecturerCourseListMineService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected LecturerCourseRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -45,9 +46,11 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 	@Override
 	public void load() {
-		Collection<Course> objects;
+		final Collection<Course> objects;
+		Principal principal;
 
-		objects = this.repository.findAllCourses();
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyCoursesByLecturerId(principal.getActiveRoleId());
 
 		super.getBuffer().setData(objects);
 	}
@@ -58,7 +61,7 @@ public class AnyCourseListService extends AbstractService<Any, Course> {
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "type", "price");
+		tuple = super.unbind(object, "code", "title", "type", "isPublished");
 
 		super.getResponse().setData(tuple);
 	}

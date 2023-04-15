@@ -22,10 +22,10 @@
 	<acme:input-textarea code="lecturer.lecture.form.label.body" path="body"/>
 	<acme:input-select code="lecturer.lecture.form.label.type" path="type" choices="${types}"/>
 	<acme:input-url code="lecturer.lecture.form.label.further-information" path="furtherInformation"/>
-	<acme:input-textbox code="lecturer.lecture.form.label.published" path="published" readonly="true"/>
+	<acme:input-textbox code="lecturer.lecture.form.label.is-published" path="isPublished" readonly="true"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && isPublished == false}">
 			<acme:submit code="lecturer.lecture.form.button.update" action="/lecturer/lecture/update"/>
 			<acme:submit code="lecturer.lecture.form.button.delete" action="/lecturer/lecture/delete"/>
 			<acme:submit code="lecturer.lecture.form.button.publish" action="/lecturer/lecture/publish"/>

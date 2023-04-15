@@ -18,7 +18,7 @@
 <acme:list>
 	<acme:list-column code="any.course.list.label.code" path="code" width="10%"/>
 	<acme:list-column code="any.course.list.label.title" path="title" width="70%"/>
-	<acme:list-column code="any.course.list.label.course-type" path="courseType" width="10%"/>
+	<acme:list-column code="any.course.list.label.type" path="type" width="10%"/>
 	<acme:list-column code="any.course.list.label.price" path="price" width="10%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>

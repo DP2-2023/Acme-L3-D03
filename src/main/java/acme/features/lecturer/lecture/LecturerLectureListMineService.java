@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
@@ -48,9 +49,18 @@ public class LecturerLectureListMineService extends AbstractService<Lecturer, Le
 	public void load() {
 		Collection<Lecture> objects;
 		Principal principal;
-
+		int masterId;
 		principal = super.getRequest().getPrincipal();
+
 		objects = this.repository.findManyLecturesByLecturerId(principal.getActiveRoleId());
+
+		if (super.getRequest().hasData("masterId")) {
+			masterId = super.getRequest().getData("masterId", int.class);
+
+			final Course course = this.repository.findOneCourseById(masterId);
+			if (course != null)
+				objects = this.repository.findManyLecturesByCourseIdAndLecturerId(masterId, principal.getActiveRoleId());
+		}
 
 		super.getBuffer().setData(objects);
 	}
@@ -61,7 +71,7 @@ public class LecturerLectureListMineService extends AbstractService<Lecturer, Le
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "type", "published");
+		tuple = super.unbind(object, "title", "type", "isPublished");
 
 		super.getResponse().setData(tuple);
 	}

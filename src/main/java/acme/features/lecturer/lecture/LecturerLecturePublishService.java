@@ -12,9 +12,12 @@
 
 package acme.features.lecturer.lecture;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -43,15 +46,15 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 	@Override
 	public void authorise() {
 		boolean status;
-		int LectureId;
-		Lecture Lecture;
-		Lecturer Lecturer;
+		int lectureId;
+		Lecture lecture;
+		Lecturer lecturer;
 
-		LectureId = super.getRequest().getData("id", int.class);
-		Lecture = this.repository.findOneLectureById(LectureId);
+		lectureId = super.getRequest().getData("id", int.class);
+		lecture = this.repository.findOneLectureById(lectureId);
 
-		Lecturer = Lecture == null ? null : Lecture.getLecturer();
-		status = Lecture != null && !Lecture.isPublished() && super.getRequest().getPrincipal().hasRole(Lecturer);
+		lecturer = lecture == null ? null : lecture.getLecturer();
+		status = lecture != null && !lecture.isPublished() && super.getRequest().getPrincipal().hasRole(lecturer);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -86,6 +89,18 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		assert object != null;
 
 		object.setPublished(true);
+
+		final int lectureId = object.getId();
+		final Collection<Course> courses = this.repository.findManyCoursesByLectureId(object.getId());
+
+		for (final Course c : courses) {
+			final int unpublishedLectures = this.repository.numberOfUnpublishedLecturesOfCourse(c.getId());
+			if (unpublishedLectures == 1) {
+				c.setPublished(true);
+				this.repository.save(c);
+			}
+		}
+
 		this.repository.save(object);
 	}
 
@@ -95,7 +110,7 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "title", "abstract$", "learningTime", "body", "type", "furtherInformation");
+		tuple = super.unbind(object, "title", "abstract$", "learningTime", "body", "type", "furtherInformation", "isPublished");
 
 		super.getResponse().setData(tuple);
 	}

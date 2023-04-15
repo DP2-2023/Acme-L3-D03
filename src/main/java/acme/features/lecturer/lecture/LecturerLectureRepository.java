@@ -17,6 +17,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Lecturer;
@@ -24,13 +25,28 @@ import acme.roles.Lecturer;
 @Repository
 public interface LecturerLectureRepository extends AbstractRepository {
 
-	@Query("select j from Lecture j where j.id = :id")
+	@Query("select l from Lecture l where l.id = :id")
 	Lecture findOneLectureById(int id);
 
-	@Query("select e from Lecturer e where e.id = :id")
+	@Query("select l from Lecturer l where l.id = :id")
 	Lecturer findOneLecturerById(int id);
 
-	@Query("select j from Lecture j where j.lecturer.id = :lecturerId")
+	@Query("select l from Lecture l where l.lecturer.id = :lecturerId")
 	Collection<Lecture> findManyLecturesByLecturerId(int lecturerId);
+
+	@Query("select c from Course c where c.id = :id")
+	Course findOneCourseById(int id);
+
+	@Query("select c from CourseLecture cl join cl.course c where cl.lecture.id = :lectureId")
+	Collection<Course> findManyCoursesByLectureId(int lectureId);
+
+	@Query("select l from CourseLecture cl join cl.lecture l where cl.course.id = :courseId and l.lecturer.id = :lecturerId")
+	Collection<Lecture> findManyLecturesByCourseIdAndLecturerId(int courseId, int lecturerId);
+
+	@Query("select count(cl) from CourseLecture cl where cl.lecture.id = :lectureId")
+	Integer numberOfCoursesOfLecture(int lectureId);
+
+	@Query("select count(l) from CourseLecture cl join cl.lecture l where cl.course.id = :courseId and l.isPublished = false")
+	Integer numberOfUnpublishedLecturesOfCourse(int courseId);
 
 }

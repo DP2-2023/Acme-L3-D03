@@ -14,7 +14,7 @@ lecturer.lecture.form.label.learning-time = Learning time
 lecturer.lecture.form.label.body = Body
 lecturer.lecture.form.label.type = Type
 lecturer.lecture.form.label.further-information = Further information
-lecturer.lecture.form.label.published = Published
+lecturer.lecture.form.label.is-published = Published
 
 lecturer.lecture.form.button.update = Update
 lecturer.lecture.form.button.delete = Delete
@@ -23,7 +23,7 @@ lecturer.lecture.form.button.create = Create
 
 lecturer.lecture.list.label.title = Title
 lecturer.lecture.list.label.type = Type
-lecturer.lecture.list.label.published = Published
+lecturer.lecture.list.label.is-published = Published
 
 lecturer.lecture.list.button.create = Create
 
