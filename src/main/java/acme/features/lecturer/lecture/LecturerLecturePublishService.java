@@ -12,12 +12,9 @@
 
 package acme.features.lecturer.lecture;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
@@ -74,8 +71,6 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 	public void bind(final Lecture object) {
 		assert object != null;
 
-		super.bind(object, "title", "abstract$", "learningTime", "body", "type", "furtherInformation");
-
 	}
 
 	@Override
@@ -89,17 +84,6 @@ public class LecturerLecturePublishService extends AbstractService<Lecturer, Lec
 		assert object != null;
 
 		object.setPublished(true);
-
-		final int lectureId = object.getId();
-		final Collection<Course> courses = this.repository.findManyCoursesByLectureId(object.getId());
-
-		for (final Course c : courses) {
-			final int unpublishedLectures = this.repository.numberOfUnpublishedLecturesOfCourse(c.getId());
-			if (unpublishedLectures == 1) {
-				c.setPublished(true);
-				this.repository.save(c);
-			}
-		}
 
 		this.repository.save(object);
 	}

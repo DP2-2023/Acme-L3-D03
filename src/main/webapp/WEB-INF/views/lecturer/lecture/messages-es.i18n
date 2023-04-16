@@ -21,6 +21,8 @@ lecturer.lecture.form.button.delete = Borrar
 lecturer.lecture.form.button.publish = Publicar
 lecturer.lecture.form.button.create = Crear
 
+lecturer.lecture.form.error.lecture-in-course = No puede eliminar una clase que pertenece a un curso
+
 lecturer.lecture.list.label.title = Título
 lecturer.lecture.list.label.type = Tipo
 lecturer.lecture.list.label.is-published = Publicada

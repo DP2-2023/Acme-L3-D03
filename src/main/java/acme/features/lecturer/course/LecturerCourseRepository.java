@@ -51,6 +51,12 @@ public interface LecturerCourseRepository extends AbstractRepository {
 	@Query("select l from CourseLecture cl join cl.lecture l where cl.course.id = :courseId and l.type = :lectureType")
 	Collection<Lecture> findManyLecturesByCourseIdAndLectureType(int courseId, LectureType lectureType);
 
+	@Query("select l from CourseLecture cl join cl.lecture l where cl.course.id = :courseId and l.isPublished = :isPublished")
+	Collection<Lecture> findManyLecturesByCourseIdAndIsPublished(int courseId, boolean isPublished);
+
 	@Query("select cl from CourseLecture cl where cl.course.id = :courseId and cl.lecture.id = :lectureId")
 	CourseLecture findOneCourseLectureByCourseIdAndLectureId(int courseId, int lectureId);
+
+	@Query("select count(p) from Practicum p join p.course c where c.id = :courseId")
+	Integer numberOfPracticaOfCourse(int courseId);
 }

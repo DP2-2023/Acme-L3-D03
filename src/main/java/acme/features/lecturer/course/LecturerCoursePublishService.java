@@ -1,5 +1,5 @@
 /*
- * LecturerCourseDeleteService.java
+ * LecturerLecturePublishService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -18,12 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.entities.lectures.Lecture;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
 
 @Service
-public class LecturerCourseDeleteService extends AbstractService<Lecturer, Course> {
+public class LecturerCoursePublishService extends AbstractService<Lecturer, Course> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -59,10 +60,7 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 		// Check course is of lecturer
 		if (status) {
 			final Collection<Course> lecturerCourses = this.repository.findManyCoursesByLecturerId(lecturer.getId());
-			if (lecturerCourses != null)
-				status = lecturerCourses.contains(course);
-			else
-				status = false;
+			status = lecturerCourses.contains(course);
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -83,23 +81,27 @@ public class LecturerCourseDeleteService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstract$", "price", "furtherInformation");
-
 	}
 
 	@Override
 	public void validate(final Course object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code"))
-			super.state(this.repository.numberOfPracticaOfCourse(object.getId()) == 0, "code", "lecturer.course.form.error.practicum-in-course");
+		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseIdAndIsPublished(object.getId(), false);
+		final boolean allPublished = lectures.size() == 0;
+
+		if (!super.getBuffer().getErrors().hasErrors("isPublished"))
+			super.state(allPublished, "isPublished", "lecturer.course.form.error.publish");
+
 	}
 
 	@Override
 	public void perform(final Course object) {
 		assert object != null;
 
-		this.repository.delete(object);
+		object.setPublished(true);
+
+		this.repository.save(object);
 	}
 
 	@Override

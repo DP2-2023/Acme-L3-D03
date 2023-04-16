@@ -46,7 +46,4 @@ public interface LecturerLectureRepository extends AbstractRepository {
 	@Query("select count(cl) from CourseLecture cl where cl.lecture.id = :lectureId")
 	Integer numberOfCoursesOfLecture(int lectureId);
 
-	@Query("select count(l) from CourseLecture cl join cl.lecture l where cl.course.id = :courseId and l.isPublished = false")
-	Integer numberOfUnpublishedLecturesOfCourse(int courseId);
-
 }

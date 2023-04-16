@@ -68,26 +68,17 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 	public void bind(final Course object) {
 		assert object != null;
 
+		super.bind(object, "code", "title", "abstract$", "price", "furtherInformation");
+
 		final int lectureId = super.getRequest().getData("lecture", int.class);
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
-		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseId(object.getId());
-		if (lecture != null) {
-			long handsOnLectures = lectures.stream().filter(x -> x.getType().equals(LectureType.HANDS_ON)).count();
-			final int totalLectures = lectures.size() + 1;
-			if (lecture.getType().equals(LectureType.HANDS_ON))
-				handsOnLectures += 1;
 
-			final float ratio = (float) handsOnLectures / totalLectures;
-			if (ratio == 0.5)
-				object.setType(CourseType.BALANCED);
-			else if (ratio < 0.5)
+		if (lecture != null)
+			if (lecture.getType() == LectureType.THEORETICAL)
 				object.setType(CourseType.THEORETICAL);
-			else if (ratio > 0.5)
+			else
 				object.setType(CourseType.HANDS_ON);
-
-			final long publishedLectures = lectures.stream().filter(Lecture::isPublished).count();
-			object.setPublished(lecture.isPublished() && publishedLectures == totalLectures);
-		}
+		object.setPublished(false);
 
 	}
 
@@ -106,12 +97,8 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		final int lectureId = super.getRequest().getData("lecture", int.class);
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
 		if (lecture != null) {
-			int handsOnLectures = this.repository.findManyLecturesByCourseIdAndLectureType(object.getId(), LectureType.HANDS_ON).size();
-			if (lecture.getType().equals(LectureType.HANDS_ON))
-				handsOnLectures += 1;
-
 			if (!super.getBuffer().getErrors().hasErrors("lecture"))
-				super.state(handsOnLectures != 0, "lecture", "lecturer.course.form.error.course-type");
+				super.state(lecture.getType() == LectureType.HANDS_ON, "lecture", "lecturer.course.form.error.course-type");
 		} else if (!super.getBuffer().getErrors().hasErrors("lecture"))
 			super.state(lecture != null, "lecture", "lecturer.course.form.error.lecture");
 	}

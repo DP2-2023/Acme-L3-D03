@@ -9,8 +9,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Length;
 
 import acme.entities.courses.Course;
@@ -56,7 +54,6 @@ public class Practicum extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	protected Course			course;
 
 	@NotNull

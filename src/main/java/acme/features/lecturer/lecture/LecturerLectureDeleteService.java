@@ -80,7 +80,7 @@ public class LecturerLectureDeleteService extends AbstractService<Lecturer, Lect
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("title"))
-			super.state(this.repository.numberOfCoursesOfLecture(object.getId()) == 0, "title", "lecturer.course.form.error.lecture-in-course");
+			super.state(this.repository.numberOfCoursesOfLecture(object.getId()) == 0, "title", "lecturer.lecture.form.error.lecture-in-course");
 	}
 
 	@Override

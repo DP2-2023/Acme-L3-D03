@@ -20,16 +20,18 @@ lecturer.course.form.label.lecture = Clase
 lecturer.course.form.button.update = Actualizar
 lecturer.course.form.button.delete = Borrar
 lecturer.course.form.button.create = Crear
-lecturer.lecture.form.button.add-lecture = Añadir clase
-lecturer.lecture.form.button.remove-lecture = Quitar clase
-lecturer.lecture.form.button.list-lectures = Ver clases
+lecturer.course.form.button.publish = Publicar
+lecturer.course.form.button.add-lecture = Añadir clase
+lecturer.course.form.button.remove-lecture = Quitar clase
+lecturer.course.form.button.list-lectures = Ver clases
 
 lecturer.course.form.error.duplicated = El código de curso ya existe
 lecturer.course.form.error.negative-price = El precio no puede ser negativo
 lecturer.course.form.error.course-type = Un curso no puede contener sólo clases teóricas
 lecturer.course.form.error.lecture-number = Un curso debe contener al menos una clase
 lecturer.course.form.error.lecture = Debe seleccionar una clase
-lecturer.course.form.error.lecture-in-course = No puede eliminar una clase que pertenece a un curso
+lecturer.course.form.error.publish = Todas las clases del curso deben estar publicadas
+lecturer.course.form.error.practicum-in-course = No puede eliminar un curso con practicas asociadas
 
 lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título
