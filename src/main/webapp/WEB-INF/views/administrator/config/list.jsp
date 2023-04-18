@@ -20,5 +20,3 @@
 	<acme:list-column code="administrator.config.list.label.value" path="value" width="90%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
-
-<acme:button code="administrator.config.list.button.create" action="/administrator/config/create"/>

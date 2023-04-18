@@ -22,13 +22,7 @@ public class AdministratorConfigController extends AbstractController<Administra
 	protected AdministratorConfigShowService	showService;
 
 	@Autowired
-	protected AdministratorConfigCreateService	createService;
-
-	@Autowired
 	protected AdministratorConfigUpdateService	updateService;
-
-	@Autowired
-	protected AdministratorConfigDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -36,9 +30,7 @@ public class AdministratorConfigController extends AbstractController<Administra
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("show", this.showService);
-		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("list", this.listService);
 	}
 

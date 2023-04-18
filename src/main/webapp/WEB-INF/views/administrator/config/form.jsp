@@ -20,12 +20,8 @@
 	<acme:input-textbox code="administrator.config.form.label.value" path="value"/>
 	
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
 			<acme:submit code="administrator.config.form.button.update" action="/administrator/config/update"/>
-			<acme:submit code="administrator.config.form.button.delete" action="/administrator/config/delete"/>
-		</jstl:when>
-		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="administrator.config.form.button.create" action="/administrator/config/create"/>
-		</jstl:when>		
+		</jstl:when>	
 	</jstl:choose>
 </acme:form>

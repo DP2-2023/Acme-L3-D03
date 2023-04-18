@@ -14,8 +14,4 @@ administrator.config.form.label.value = Valor:
 administrator.config.list.label.key = Clave:
 administrator.config.list.label.value = Valor:
 
-administrator.config.list.button.create = Crear
-
 administrator.config.form.button.update =Actualizar
-administrator.config.form.button.delete =Eliminar
-administrator.config.form.button.create =Añadir
