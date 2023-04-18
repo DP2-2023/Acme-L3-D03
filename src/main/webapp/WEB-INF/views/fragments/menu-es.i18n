@@ -14,6 +14,7 @@ master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
+master.menu.authenticated = Autenticados
 
 # master.menu.anonymous #######################################################
 
@@ -33,6 +34,13 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
+master.menu.administrator.bulletins.list = Boletines
+master.menu.administrator.offers.list = Ofertas
+
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated.bulletins.list = Boletines
+master.menu.authenticated.offers.list = Ofertas
 
 # master.menu.provider ########################################################
 
