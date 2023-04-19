@@ -33,6 +33,7 @@ lecturer.course.form.error.lecture = You must select a lecture
 lecturer.course.form.error.publish = All lectures of the course must be published
 lecturer.course.form.error.practicum-in-course = You cannot delete a course with related practica
 lecturer.course.form.error.spam = You cannot input spam
+lecturer.course.form.error.not-accepted-currency = The input is not in an accepted currency
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
