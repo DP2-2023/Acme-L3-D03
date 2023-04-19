@@ -22,6 +22,7 @@ lecturer.lecture.form.button.publish = Publish
 lecturer.lecture.form.button.create = Create
 
 lecturer.lecture.form.error.lecture-in-course = You cannot delete a lecture that is in a course
+lecturer.lecture.form.error.spam = You cannot input spam
 
 lecturer.lecture.list.label.title = Title
 lecturer.lecture.list.label.type = Type

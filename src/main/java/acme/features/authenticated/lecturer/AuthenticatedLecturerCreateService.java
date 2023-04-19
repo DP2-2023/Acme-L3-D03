@@ -23,6 +23,7 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import spamfilter.SpamFilter;
 
 @Service
 public class AuthenticatedLecturerCreateService extends AbstractService<Authenticated, Lecturer> {
@@ -76,6 +77,35 @@ public class AuthenticatedLecturerCreateService extends AbstractService<Authenti
 	@Override
 	public void validate(final Lecturer object) {
 		assert object != null;
+
+		final String language = super.getRequest().getLocale().getDisplayLanguage();
+		String spamTerms = null;
+		final String spamTermsES = this.repository.findOneConfigByKey("spamTermsES");
+		final String spamTermsEN = this.repository.findOneConfigByKey("spamTermsEN");
+		final Float threshold = Float.valueOf(this.repository.findOneConfigByKey("spamThreshold"));
+
+		if (spamTermsES != null && spamTermsES.trim().isEmpty()) {
+			spamTerms = spamTermsES;
+			if (spamTermsEN != null && spamTermsEN.trim().isEmpty())
+				spamTerms = spamTerms + "," + spamTermsEN;
+		} else if (spamTermsEN != null && spamTermsEN.trim().isEmpty())
+			spamTerms = spamTermsEN;
+
+		if (spamTerms != null && threshold != null) {
+			final SpamFilter spamFilter = new SpamFilter(spamTerms, threshold);
+
+			if (!super.getBuffer().getErrors().hasErrors("almaMater"))
+				super.state(!spamFilter.isSpam(object.getAlmaMater()), "almaMater", "authenticated.lecturer.form.error.spam");
+
+			if (!super.getBuffer().getErrors().hasErrors("resume"))
+				super.state(!spamFilter.isSpam(object.getResume()), "resume", "authenticated.lecturer.form.error.spam");
+
+			if (!super.getBuffer().getErrors().hasErrors("qualifications"))
+				super.state(!spamFilter.isSpam(object.getQualifications()), "qualifications", "authenticated.lecturer.form.error.spam");
+
+			if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+				super.state(!spamFilter.isSpam(object.getFurtherInformation()), "furtherInformation", "authenticated.lecturer.form.error.spam");
+		}
 	}
 
 	@Override

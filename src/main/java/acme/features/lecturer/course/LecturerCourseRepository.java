@@ -59,4 +59,7 @@ public interface LecturerCourseRepository extends AbstractRepository {
 
 	@Query("select count(p) from Practicum p join p.course c where c.id = :courseId")
 	Integer numberOfPracticaOfCourse(int courseId);
+
+	@Query("select c.value from Config c where c.configKey = :key")
+	String findOneConfigByKey(String key);
 }

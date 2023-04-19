@@ -25,7 +25,9 @@ public interface AuthenticatedLecturerRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select c from Lecturer c where c.userAccount.id = :id")
+	@Query("select l from Lecturer l where l.userAccount.id = :id")
 	Lecturer findOneLecturerByUserAccountId(int id);
 
+	@Query("select c.value from Config c where c.configKey = :key")
+	String findOneConfigByKey(String key);
 }

@@ -32,6 +32,7 @@ lecturer.course.form.error.lecture-number = Un curso debe contener al menos una 
 lecturer.course.form.error.lecture = Debe seleccionar una clase
 lecturer.course.form.error.publish = Todas las clases del curso deben estar publicadas
 lecturer.course.form.error.practicum-in-course = No puede eliminar un curso con practicas asociadas
+lecturer.course.form.error.spam = No puede introducir spam
 
 lecturer.course.list.label.code = Código
 lecturer.course.list.label.title = Título

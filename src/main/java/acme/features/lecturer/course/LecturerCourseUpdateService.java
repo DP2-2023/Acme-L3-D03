@@ -21,6 +21,7 @@ import acme.entities.courses.Course;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import spamfilter.SpamFilter;
 
 @Service
 public class LecturerCourseUpdateService extends AbstractService<Lecturer, Course> {
@@ -90,6 +91,32 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		if (!super.getBuffer().getErrors().hasErrors("price"))
 			super.state(object.getPrice().getAmount() >= 0, "price", "lecturer.course.form.error.negative-price");
+
+		// Spam filter
+		String spamTerms = null;
+		final String spamTermsES = this.repository.findOneConfigByKey("spamTermsES");
+		final String spamTermsEN = this.repository.findOneConfigByKey("spamTermsEN");
+		final Float threshold = Float.valueOf(this.repository.findOneConfigByKey("spamThreshold"));
+
+		if (spamTermsES != null && !spamTermsES.trim().isEmpty()) {
+			spamTerms = spamTermsES;
+			if (spamTermsEN != null && !spamTermsEN.trim().isEmpty())
+				spamTerms = spamTerms + "," + spamTermsEN;
+		} else if (spamTermsEN != null && !spamTermsEN.trim().isEmpty())
+			spamTerms = spamTermsEN;
+
+		if (spamTerms != null && threshold != null) {
+			final SpamFilter spamFilter = new SpamFilter(spamTerms, threshold);
+
+			if (!super.getBuffer().getErrors().hasErrors("title"))
+				super.state(!spamFilter.isSpam(object.getTitle()), "title", "lecturer.course.form.error.spam");
+
+			if (!super.getBuffer().getErrors().hasErrors("abstract$"))
+				super.state(!spamFilter.isSpam(object.getAbstract$()), "abstract$", "lecturer.course.form.error.spam");
+
+			if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
+				super.state(!spamFilter.isSpam(object.getFurtherInformation()), "furtherInformation", "lecturer.course.form.error.spam");
+		}
 
 	}
 

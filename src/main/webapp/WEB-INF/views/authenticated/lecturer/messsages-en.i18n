@@ -13,5 +13,7 @@ authenticated.lecturer.form.label.resume = Resume
 authenticated.lecturer.form.label.qualifications = Qualifications
 authenticated.lecturer.form.label.further-information = Further information (optional)
 
+authenticated.lecturer.form.error.spam = You cannot input spam
+
 authenticated.lecturer.form.button.create = Register
 authenticated.lecturer.form.button.update = Update

@@ -32,6 +32,7 @@ lecturer.course.form.error.lecture-number = A course must contain at least one l
 lecturer.course.form.error.lecture = You must select a lecture
 lecturer.course.form.error.publish = All lectures of the course must be published
 lecturer.course.form.error.practicum-in-course = You cannot delete a course with related practica
+lecturer.course.form.error.spam = You cannot input spam
 
 lecturer.course.list.label.code = Code
 lecturer.course.list.label.title = Title
