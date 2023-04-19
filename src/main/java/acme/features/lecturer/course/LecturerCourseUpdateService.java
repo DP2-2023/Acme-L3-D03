@@ -18,9 +18,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
+import acme.framework.components.datatypes.Money;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
+import acme.utils.CurrencyExchange;
 import spamfilter.SpamFilter;
 
 @Service
@@ -83,6 +85,16 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 
 		super.bind(object, "title", "abstract$", "price", "furtherInformation");
 
+		// Currency conversion
+		final Money sourcePrice = super.getRequest().getData("price", Money.class);
+		final String ratesString = this.repository.findOneConfigByKey("currencyExchangeRates");
+		final String systemCurrency = this.repository.findOneConfigByKey("systemCurrency");
+
+		final CurrencyExchange currencyExchange = new CurrencyExchange(ratesString, systemCurrency);
+		final Money targetPrice = currencyExchange.exchange(sourcePrice);
+		if (targetPrice != null)
+			object.setPrice(targetPrice);
+
 	}
 
 	@Override
@@ -117,6 +129,14 @@ public class LecturerCourseUpdateService extends AbstractService<Lecturer, Cours
 			if (!super.getBuffer().getErrors().hasErrors("furtherInformation"))
 				super.state(!spamFilter.isSpam(object.getFurtherInformation()), "furtherInformation", "lecturer.course.form.error.spam");
 		}
+
+		// Currency conversion
+		final String ratesString = this.repository.findOneConfigByKey("currencyExchangeRates");
+		final String systemCurrency = this.repository.findOneConfigByKey("systemCurrency");
+		final CurrencyExchange currencyExchange = new CurrencyExchange(ratesString, systemCurrency);
+
+		if (!super.getBuffer().getErrors().hasErrors("price"))
+			super.state(currencyExchange.isAcceptedCurrency(object.getPrice()), "price", "lecturer.course.form.error.not-accepted-currency");
 
 	}
 
