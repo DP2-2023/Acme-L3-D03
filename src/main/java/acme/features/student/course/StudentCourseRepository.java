@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.student.course;
 
 import java.util.Collection;
 
@@ -21,7 +21,7 @@ import acme.entities.courses.Course;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnyCourseRepository extends AbstractRepository {
+public interface StudentCourseRepository extends AbstractRepository {
 
 	@Query("select j from Course j where j.id = :id")
 	Course findOneCourseById(int id);

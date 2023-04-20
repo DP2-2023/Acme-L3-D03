@@ -1,5 +1,5 @@
 /*
- * AnyCourseController.java
+ * StudentWorkbookController.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,35 +10,52 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.student.workbook;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
+import acme.entities.workbooks.Workbook;
 import acme.framework.controllers.AbstractController;
+import acme.roles.Student;
 
 @Controller
-public class AnyCourseController extends AbstractController<Any, Course> {
+public class StudentWorkbookController extends AbstractController<Student, Workbook> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseListService	listService;
+	protected StudentWorkbookShowService		showService;
 
 	@Autowired
-	protected AnyCourseShowService	showService;
+	protected StudentWorkbookCreateService		createService;
+
+	@Autowired
+	protected StudentWorkbookUpdateService		updateService;
+
+	@Autowired
+	protected StudentWorkbookDeleteService		deleteService;
+
+	@Autowired
+	protected StudentWorkbookListMineService	listMineService;
+
+	@Autowired
+	protected StudentWorkbookPublishService		publishService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
+		super.addBasicCommand("delete", this.deleteService);
+
+		super.addCustomCommand("list-mine", "list", this.listMineService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }

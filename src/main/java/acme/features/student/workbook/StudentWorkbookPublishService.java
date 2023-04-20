@@ -1,5 +1,5 @@
 /*
- * AnyCourseShowService.java
+ * StudentWorkbookPublishService.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -10,67 +10,58 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.any.course;
+package acme.features.student.workbook;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.courses.Course;
-import acme.framework.components.accounts.Any;
+import acme.entities.workbooks.Workbook;
+import acme.framework.components.accounts.Principal;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
+import acme.roles.Student;
 
 @Service
-public class AnyCourseShowService extends AbstractService<Any, Course> {
+public class StudentWorkbookPublishService extends AbstractService<Student, Workbook> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnyCourseRepository repository;
+	protected StudentWorkbookRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void check() {
-		boolean status;
-
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int id;
-		Course Course;
-
-		id = super.getRequest().getData("id", int.class);
-		Course = this.repository.findOneCourseById(id);
-		status = Course != null && Course.isPublished();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Course object;
-		int id;
+		Collection<Workbook> objects;
+		Principal principal;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneCourseById(id);
+		principal = super.getRequest().getPrincipal();
+		objects = this.repository.findManyWorkbooksByStudentId(principal.getActiveRoleId());
 
-		super.getBuffer().setData(object);
+		super.getBuffer().setData(objects);
 	}
 
 	@Override
-	public void unbind(final Course object) {
+	public void unbind(final Workbook object) {
 		assert object != null;
 
 		Tuple tuple;
 
-		tuple = super.unbind(object, "code", "title", "abstract$", "courseType", "price", "furtherInformation");
+		tuple = super.unbind(object, "title", "type", "published");
 
 		super.getResponse().setData(tuple);
 	}

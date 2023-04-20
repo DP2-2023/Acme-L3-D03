@@ -8,14 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-any.course.form.label.code = Código
-any.course.form.label.title = Título
-any.course.form.label.abstract$ = Resumen
-any.course.form.label.course-type = Tipo
-any.course.form.label.price = Precio
-any.course.form.label.further-information = Más información
+student.course.form.label.code = Código
+student.course.form.label.title = Título
+student.course.form.label.abstract$ = Resumen
+student.course.form.label.course-type = Tipo
+student.course.form.label.price = Precio
+student.course.form.label.further-information = Más información
 
-any.course.list.label.code = Código
-any.course.list.label.title = Título
-any.course.list.label.course-type = Tipo
-any.course.list.label.price = Precio
+student.course.list.label.code = Código
+student.course.list.label.title = Título
+student.course.list.label.course-type = Tipo
+student.course.list.label.price = Precio

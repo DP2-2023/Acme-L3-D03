@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.entities.enrolments.Enrolment;
 import acme.framework.data.AbstractEntity;
+import acme.roles.Student;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,11 +40,18 @@ public class Workbook extends AbstractEntity {
 	@URL
 	protected String			furtherInformation;
 
+	protected boolean			published;
+
 	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	protected Enrolment			enrolment;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Student			student;
 
 }
