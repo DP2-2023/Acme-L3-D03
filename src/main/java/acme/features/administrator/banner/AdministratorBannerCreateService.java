@@ -68,12 +68,8 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		boolean periodValidation;
 
 		periodValidation = end.before(DateUtils.addDays(start, 7));
-		super.state(periodValidation, "periodValidation", "javax.validation.constraints.AssertTrue.message");
+		super.state(!periodValidation, "periodValidation", "javax.validation.constraints.AssertTrue.message");
 
-		boolean confirmation;
-
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override

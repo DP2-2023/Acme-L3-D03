@@ -3,6 +3,7 @@ package acme.features.administrator.banner;
 
 import java.util.Date;
 
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,6 +65,13 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	@Override
 	public void validate(final Banner object) {
 		assert object != null;
+		final Date start = object.getDisplayPeriodStart();
+		final Date end = object.getDisplayPeriodEnd();
+
+		boolean periodValidation;
+
+		periodValidation = end.before(DateUtils.addDays(start, 7));
+		super.state(!periodValidation, "periodValidation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
