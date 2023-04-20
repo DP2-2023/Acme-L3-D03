@@ -16,6 +16,11 @@ assistant.job.form.label.estimatedTotalTime = Tiempo Total Estimado:
 assistant.tutorial.list.label.course-title = Título del Curso:
 assistant.job.form.label.numSessions = Número de Sesiones:
 
+validation.tutorial.code = Ej: XXXX0000
+
 assistant.tutorial.list.button.create = Crear
+assistant.tutorial.form.button.create = Crear
+assistant.tutorial.form.button.update = Actualizar
+assistant.tutorial.form.button.delete = Eliminar
 
 assistant.tutorial.form.error.negative-estimatedTotalTime = El tiempo estimado total tiene que ser positivo

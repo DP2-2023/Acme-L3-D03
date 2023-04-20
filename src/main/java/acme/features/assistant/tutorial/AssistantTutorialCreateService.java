@@ -53,7 +53,7 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 		int courseId;
 		Course course;
 
-		courseId = super.getRequest().getData("contractor", int.class);
+		courseId = super.getRequest().getData("course", int.class);
 		course = this.repository.findOneCourseById(courseId);
 
 		super.bind(object, "code", "title", "resume", "goals", "estimatedTotalTime");
@@ -63,9 +63,6 @@ public class AssistantTutorialCreateService extends AbstractService<Assistant, T
 	@Override
 	public void validate(final Tutorial object) {
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("estimatedTotalTime"))
-			super.state(object.getEstimatedTotalTime() > 0, "estimatedTotalTime", "assistant.tutorial.form.error.negative-estimatedTotalTime");
 	}
 
 	@Override

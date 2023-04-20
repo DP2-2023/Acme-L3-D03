@@ -61,14 +61,12 @@ public class AssistantTutorialShowService extends AbstractService<Assistant, Tut
 	@Override
 	public void unbind(final Tutorial object) {
 
-		int assistantId;
 		assert object != null;
 		Collection<Course> courses;
 		SelectChoices choices;
 		Tuple tuple;
 
-		assistantId = super.getRequest().getPrincipal().getActiveRoleId();
-		courses = this.repository.findManyCoursesByAssistantId(assistantId);
+		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
 		final List<Session> sessions = object.getSessions();

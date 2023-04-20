@@ -21,7 +21,17 @@
 	<acme:input-textbox code="assistant.tutorial.list.label.goals" path="goals"/>
 	<acme:input-textbox code="assistant.tutorial.list.label.resume" path="resume"/>
 	<acme:input-double code="assistant.job.form.label.estimatedTotalTime" path="estimatedTotalTime"/>
-	<acme:input-select code="assistant.tutorial.list.label.course-title" path="course" choices="${courses}"/>	
-	<acme:input-integer code="assistant.job.form.label.numSessions" path="numSessions"/>
-		
+	<acme:input-select code="assistant.tutorial.list.label.course-title" path="course" choices="${courses}"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-integer code="assistant.job.form.label.numSessions" path="numSessions" readonly="true"/>
+	</jstl:if>
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="assistant.tutorial.form.button.update" action="/assistant/tutorial/update"/>
+			<acme:submit code="assistant.tutorial.form.button.delete" action="/assistant/tutorial/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="assistant.tutorial.form.button.create" action="/assistant/tutorial/create"/>
+		</jstl:when>		
+	</jstl:choose>	
 </acme:form>

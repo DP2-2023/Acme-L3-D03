@@ -4,13 +4,13 @@ package acme.features.assistant.dashboard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.forms.AssistantDashboards;
+import acme.forms.AssistantDashboard;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Assistant;
 
 @Service
-public class AssistantDashboardShowService extends AbstractService<Assistant, AssistantDashboards> {
+public class AssistantDashboardShowService extends AbstractService<Assistant, AssistantDashboard> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -31,7 +31,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 
 	@Override
 	public void load() {
-		AssistantDashboards assistantDashboards;
+		AssistantDashboard assistantDashboards;
 
 		Double totalNumberOfTutorialsRegardingTheoryOrHandsonCourses;
 		Double averageTimeOfHisSessions;
@@ -56,7 +56,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 		minimumTimeOfHisTutorials = this.repository.minimumTimeOfHisTutorials(assistantId);
 		maximumTimeOfHisTutorials = this.repository.maximumTimeOfHisTutorials(assistantId);
 
-		assistantDashboards = new AssistantDashboards();
+		assistantDashboards = new AssistantDashboard();
 		assistantDashboards.setTotalNumberOfTutorialsRegardingTheoryOrHandsonCourses(totalNumberOfTutorialsRegardingTheoryOrHandsonCourses);
 		assistantDashboards.setAverageTimeOfHisSessions(averageTimeOfHisSessions);
 		assistantDashboards.setDeviationTimeOfHisSessions(deviationTimeOfHisSessions);
@@ -71,7 +71,7 @@ public class AssistantDashboardShowService extends AbstractService<Assistant, As
 	}
 
 	@Override
-	public void unbind(final AssistantDashboards object) {
+	public void unbind(final AssistantDashboard object) {
 		Tuple tuple;
 
 		tuple = super.unbind(object, //

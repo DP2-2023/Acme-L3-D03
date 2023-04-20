@@ -6,12 +6,12 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.forms.AssistantDashboards;
+import acme.forms.AssistantDashboard;
 import acme.framework.controllers.AbstractController;
 import acme.roles.Assistant;
 
 @Controller
-public class AssistantDashboardController extends AbstractController<Assistant, AssistantDashboards> {
+public class AssistantDashboardController extends AbstractController<Assistant, AssistantDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
