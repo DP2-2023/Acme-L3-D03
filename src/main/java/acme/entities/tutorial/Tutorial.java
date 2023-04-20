@@ -1,9 +1,15 @@
 
-package acme.entities.sessions;
+package acme.entities.tutorial;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,6 +17,8 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import acme.entities.courses.Course;
+import acme.entities.sessions.Session;
 import acme.framework.data.AbstractEntity;
 import acme.roles.Assistant;
 import lombok.Getter;
@@ -33,15 +41,15 @@ public class Tutorial extends AbstractEntity {
 	protected String			code;
 
 	@NotBlank
-	@Length(min = 0, max = 75)
+	@Length(max = 75)
 	protected String			title;
 
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Length(max = 100)
 	protected String			resume;
 
 	@NotBlank
-	@Length(min = 0, max = 100)
+	@Length(max = 100)
 	protected String			goals;
 
 	protected Double			estimatedTotalTime;
@@ -53,9 +61,19 @@ public class Tutorial extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Assistant			assistant;
 
-	//@NotNull
-	//@Valid
-	//@ManyToOne(optional = false)
-	//protected course			course;
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Course			course;
+
+	@OneToMany(mappedBy = "tutorial", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	protected List<Session>		sessions;
+
+
+	// Constructors	
+	public Tutorial() {
+		super();
+		this.sessions = new ArrayList<>();
+	}
 
 }

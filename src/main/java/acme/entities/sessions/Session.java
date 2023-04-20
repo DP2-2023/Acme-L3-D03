@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.tutorial.Tutorial;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class TutorialSession extends AbstractEntity {
+public class Session extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -50,5 +51,11 @@ public class TutorialSession extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Tutorial			tutorial;
+
+
+	// Constructors
+	public Session() {
+		super();
+	}
 
 }
