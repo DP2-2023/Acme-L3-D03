@@ -20,6 +20,7 @@ master.menu.authenticated = Authenticated
 
 master.menu.any = Any
 master.menu.any.course.list = List courses
+master.menu.any.peep.list = List peeps
 
 # master.menu.anonymous #######################################################
 
