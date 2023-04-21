@@ -112,10 +112,7 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 
 		final int lectureId = super.getRequest().getData("lecture", int.class);
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
-		if (lecture != null) {
-			if (!super.getBuffer().getErrors().hasErrors("lecture"))
-				super.state(lecture.getType() == LectureType.HANDS_ON, "lecture", "lecturer.course.form.error.course-type");
-		} else if (!super.getBuffer().getErrors().hasErrors("lecture"))
+		if (!super.getBuffer().getErrors().hasErrors("lecture"))
 			super.state(lecture != null, "lecture", "lecturer.course.form.error.lecture");
 
 		// Spam filter

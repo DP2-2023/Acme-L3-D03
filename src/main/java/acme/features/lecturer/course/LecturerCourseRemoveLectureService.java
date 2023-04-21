@@ -104,11 +104,6 @@ public class LecturerCourseRemoveLectureService extends AbstractService<Lecturer
 				object.setType(CourseType.THEORETICAL);
 			else if (ratio > 0.5)
 				object.setType(CourseType.HANDS_ON);
-
-			long publishedLectures = lectures.stream().filter(Lecture::isPublished).count();
-			if (lecture.isPublished())
-				publishedLectures -= 1;
-			object.setPublished(publishedLectures == totalLectures);
 		}
 	}
 
@@ -119,15 +114,10 @@ public class LecturerCourseRemoveLectureService extends AbstractService<Lecturer
 		final int lectureId = super.getRequest().getData("lecture", int.class);
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
 		if (lecture != null) {
-			int handsOnLectures = this.repository.findManyLecturesByCourseIdAndLectureType(object.getId(), LectureType.HANDS_ON).size();
 			final int totalLectures = this.repository.findManyLecturesByCourseId(object.getId()).size();
-			if (lecture.getType().equals(LectureType.HANDS_ON))
-				handsOnLectures -= 1;
 
 			if (!super.getBuffer().getErrors().hasErrors("lecture"))
-				super.state(totalLectures == 0, "lecture", "lecturer.course.form.error.lecture-number");
-			if (!super.getBuffer().getErrors().hasErrors("lecture"))
-				super.state(handsOnLectures != 0, "lecture", "lecturer.course.form.error.course-type");
+				super.state(totalLectures - 1 > 0, "lecture", "lecturer.course.form.error.lecture-number");
 
 		} else if (!super.getBuffer().getErrors().hasErrors("lecture"))
 			super.state(lecture != null, "lecture", "lecturer.course.form.error.lecture");
@@ -145,6 +135,7 @@ public class LecturerCourseRemoveLectureService extends AbstractService<Lecturer
 		final CourseLecture relation = this.repository.findOneCourseLectureByCourseIdAndLectureId(object.getId(), lecture.getId());
 
 		this.repository.delete(relation);
+		this.repository.save(object);
 	}
 
 	@Override

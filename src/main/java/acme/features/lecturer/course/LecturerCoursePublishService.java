@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.courses.Course;
 import acme.entities.lectures.Lecture;
+import acme.entities.lectures.LectureType;
 import acme.framework.components.models.Tuple;
 import acme.framework.services.AbstractService;
 import acme.roles.Lecturer;
@@ -87,11 +88,16 @@ public class LecturerCoursePublishService extends AbstractService<Lecturer, Cour
 	public void validate(final Course object) {
 		assert object != null;
 
-		final Collection<Lecture> lectures = this.repository.findManyLecturesByCourseIdAndIsPublished(object.getId(), false);
+		Collection<Lecture> lectures = this.repository.findManyLecturesByCourseIdAndIsPublished(object.getId(), false);
 		final boolean allPublished = lectures.size() == 0;
 
 		if (!super.getBuffer().getErrors().hasErrors("isPublished"))
 			super.state(allPublished, "isPublished", "lecturer.course.form.error.publish");
+
+		lectures = this.repository.findManyLecturesByCourseIdAndLectureType(object.getId(), LectureType.HANDS_ON);
+		final boolean notAllTheoretical = lectures.size() > 0;
+		if (!super.getBuffer().getErrors().hasErrors("type"))
+			super.state(notAllTheoretical, "type", "lecturer.course.form.error.course-type");
 
 	}
 

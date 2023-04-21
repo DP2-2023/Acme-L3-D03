@@ -110,14 +110,8 @@ public class LecturerCourseAddLectureService extends AbstractService<Lecturer, C
 
 		final int lectureId = super.getRequest().getData("lecture", int.class);
 		final Lecture lecture = this.repository.findOneLectureById(lectureId);
-		if (lecture != null) {
-			int handsOnLectures = this.repository.findManyLecturesByCourseIdAndLectureType(object.getId(), LectureType.HANDS_ON).size();
-			if (lecture.getType().equals(LectureType.HANDS_ON))
-				handsOnLectures += 1;
 
-			if (!super.getBuffer().getErrors().hasErrors("lecture"))
-				super.state(handsOnLectures != 0, "lecture", "lecturer.course.form.error.course-type");
-		} else if (!super.getBuffer().getErrors().hasErrors("lecture"))
+		if (!super.getBuffer().getErrors().hasErrors("lecture"))
 			super.state(lecture != null, "lecture", "lecturer.course.form.error.lecture");
 
 	}
