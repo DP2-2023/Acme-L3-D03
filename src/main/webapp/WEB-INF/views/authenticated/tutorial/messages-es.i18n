@@ -15,6 +15,7 @@ authenticated.tutorial.list.label.resume = Resumen:
 authenticated.tutorial.form.label.estimatedTotalTime = Tiempo Total Estimado:
 authenticated.tutorial.list.label.course-title = Título del Curso:
 authenticated.tutorial.form.label.numSessions = Número de Sesiones:
+authenticated.tutorial.form.label.assistant = Asistente:
 
 validation.tutorial.code = Ej: XXXX0000
 

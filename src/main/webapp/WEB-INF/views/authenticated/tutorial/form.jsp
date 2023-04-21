@@ -24,6 +24,7 @@
 	<acme:input-select code="authenticated.tutorial.list.label.course-title" path="course" choices="${courses}"/>
 	<jstl:if test="${_command == 'show'}">
 		<acme:input-integer code="authenticated.tutorial.form.label.numSessions" path="numSessions" readonly="true"/>
+		<acme:input-integer code="authenticated.tutorial.form.label.assistant" path="assistantId" readonly="true"/>
 	</jstl:if>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">

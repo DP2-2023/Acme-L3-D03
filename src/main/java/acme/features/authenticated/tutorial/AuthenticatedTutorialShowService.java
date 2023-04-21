@@ -69,11 +69,13 @@ public class AuthenticatedTutorialShowService extends AbstractService<Authentica
 		courses = this.repository.findAllCourses();
 		choices = SelectChoices.from(courses, "title", object.getCourse());
 
+		final int id = object.getAssistant().getId();
 		final List<Session> sessions = object.getSessions();
 		tuple = super.unbind(object, "code", "title", "resume", "goals", "estimatedTotalTime");
 		tuple.put("course", choices.getSelected().getKey());
 		tuple.put("courses", choices);
 		tuple.put("numSessions", sessions.size());
+		tuple.put("assistantId", id);
 
 		super.getResponse().setData(tuple);
 	}
