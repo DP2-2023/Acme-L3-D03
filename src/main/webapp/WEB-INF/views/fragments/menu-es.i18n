@@ -16,6 +16,11 @@ master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 master.menu.authenticated = Autenticados
 
+# master.menu.any #######################################################
+
+master.menu.any = Todos
+master.menu.any.course.list = Ver cursos
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
@@ -53,6 +58,13 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Profesor
+master.menu.lecturer.lecture.list = Ver clases
+master.menu.lecturer.course.list = Ver cursos
+master.menu.lecturer.dashboard = Panel de profesor
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -61,3 +73,5 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.lecturer = Datos de profesor
+master.menu.user-account.become-lecturer = Hazte profesor
