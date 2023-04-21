@@ -21,7 +21,9 @@
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.course.list" action="/any/course/list"/>
   			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
+			<acme:menu-suboption code="master.menu.any.banner.list" action="/any/banner/list"/>
 		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-1" action="https://www.wikipedia.org/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://www.dazn.com/es-ES/welcome"/>
@@ -41,6 +43,7 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.bulletins.list" action="/administrator/bulletin/list"/>
 			<acme:menu-suboption code="master.menu.administrator.offers.list" action="/administrator/offer/list"/>
+			<acme:menu-suboption code="master.menu.administrator.banner.list" action="/administrator/banner/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">

@@ -14,13 +14,13 @@ master.menu.home = Inicio
 master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
-master.menu.authenticated = Autenticados
 
 # master.menu.any #######################################################
 
 master.menu.any = Todos
 master.menu.any.course.list = Ver cursos
 master.menu.any.peep.list = Ver Peeps
+master.menu.any.banner.list = Banners
 
 # master.menu.anonymous #######################################################
 
@@ -43,9 +43,11 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.bulletins.list = Boletines
 master.menu.administrator.offers.list = Ofertas
+master.menu.administrator.banner.list = Banners
 
 # master.menu.authenticated ########################################################
 
+master.menu.authenticated = Autenticados
 master.menu.authenticated.bulletins.list = Boletines
 master.menu.authenticated.offers.list = Ofertas
 
