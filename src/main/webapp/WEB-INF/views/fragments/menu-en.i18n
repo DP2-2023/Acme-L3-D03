@@ -50,6 +50,16 @@ master.menu.administrator.offers.list = Offers
 master.menu.authenticated.bulletins.list = Bulletins
 master.menu.authenticated.offers.list = Offers
 
+# master.menu.authenticated ###################################################
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum.list = List Practicum 
+
+# master.menu.company ###################################################
+master.menu.company = Company
+master.menu.company.practicum.list = List Practicum 
+master.menu.company.practicumSession.list = List Practicum Sessions
+master.menu.company.dashboard = Company dashboard
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -75,5 +85,7 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.company = Company data
 master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer

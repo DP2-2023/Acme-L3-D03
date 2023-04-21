@@ -23,6 +23,7 @@
 	<acme:input-url code="administrator.bulletin.form.label.link" path="link"/>
 
 	<jstl:if test="${!readonly}">
+		<acme:input-checkbox code="administrator.bulletin.form.label.confirmation" path="confirmation"/>
 		<acme:submit code="administrator.bulletin.form.button.create" action="/administrator/bulletin/create"/>
 	</jstl:if>
 </acme:form>
