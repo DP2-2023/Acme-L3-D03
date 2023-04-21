@@ -10,17 +10,17 @@
 
 
 
-administrator.offer.list.label.heading = Heading
-administrator.offer.list.label.offerStartDate = Start Date
-administrator.offer.list.label.offerEndDate = End Date
-administrator.offer.list.label.price = Price
-administrator.offer.list.label.link = Link
+authenticated.offer.list.label.heading = Heading
+authenticated.offer.list.label.offerStartDate = Start Date
+authenticated.offer.list.label.offerEndDate = End Date
+authenticated.offer.list.label.price = Price
+authenticated.offer.list.label.link = Link
 
 
-administrator.offer.form.label.moment = Moment
-administrator.offer.form.label.heading = Heading
-administrator.offer.form.label.summary = Summary
-administrator.offer.form.label.offerStartDate = Start Date
-administrator.offer.form.label.offerEndDate = End Date
-administrator.offer.form.label.price = Price
-administrator.offer.form.label.link = Link
+authenticated.offer.form.label.moment = Moment
+authenticated.offer.form.label.heading = Heading
+authenticated.offer.form.label.summary = Summary
+authenticated.offer.form.label.offerStartDate = Start Date
+authenticated.offer.form.label.offerEndDate = End Date
+authenticated.offer.form.label.price = Price
+authenticated.offer.form.label.link = Link
