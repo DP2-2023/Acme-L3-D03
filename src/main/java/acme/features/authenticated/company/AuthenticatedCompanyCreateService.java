@@ -32,7 +32,7 @@ public class AuthenticatedCompanyCreateService extends AbstractService<Authentic
 	@Autowired
 	protected AuthenticatedCompanyRepository repository;
 
-	// AbstractService<Authenticated, Lecturer> ---------------------------
+	// AbstractService interface ---------------------------
 
 
 	@Override

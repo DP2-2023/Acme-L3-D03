@@ -34,6 +34,16 @@ master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
+# master.menu.authenticated ###################################################
+master.menu.authenticated = Autenticados
+master.menu.authenticated.practicum.list = Lista de prácticas 
+
+# master.menu.company ###################################################
+master.menu.company = Compañía
+master.menu.company.practicum.list = Lista de prácticas 
+master.menu.company.practicumSession.list = Lista de sesiones prácticas
+master.menu.company.dashboard = Panel de compañía
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
