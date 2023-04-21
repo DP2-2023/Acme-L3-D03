@@ -21,7 +21,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class notes extends AbstractEntity {
+public class Note extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
