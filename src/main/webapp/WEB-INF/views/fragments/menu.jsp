@@ -18,6 +18,9 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+		<acme:menu-option code="master.menu.any">
+  			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
+		</acme:menu-option>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-1" action="https://www.wikipedia.org/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://www.dazn.com/es-ES/welcome"/>
@@ -43,7 +46,7 @@
 		<acme:menu-option code="master.menu.consumer" access="hasRole('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
-		<acme:menu-option code="master.menu.any.peep.list" action="/any/peep/list"/>
+		
 
 		
 	</acme:menu-left>

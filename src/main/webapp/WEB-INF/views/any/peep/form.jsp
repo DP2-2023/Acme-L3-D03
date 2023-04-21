@@ -16,17 +16,20 @@
 <%@taglib prefix="acme" uri="http://www.the-acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-moment code="any.peep.list.label.moment" path="moment"/>
+
+	<jstl:if test="${_command == 'show'}">
+	   	<acme:input-moment code="any.peep.list.label.moment" path="moment"/>
+	</jstl:if>
 	<acme:input-textbox code="any.peep.list.label.title" path="title"/>
 	<acme:input-textbox code="any.peep.list.label.nick" path="nick"/>
 	<acme:input-textbox code="any.peep.list.label.message" path="message"/>
 	<acme:input-textbox code="any.peep.list.label.email" path="email"/>
 	<acme:input-textbox code="any.peep.list.label.link" path="link"/>
-	<div class="panel-body" style="margin: 1em 1em 1em 1em; text-align: left;">	
-		<img src="${link}" class="img-fluid rounded" alt="" style="border-style: solid; max-width: 150px;"/>
-	</div>
 	
-	<acme:submit code="any.peep.list.button.publish" action="/any/peep/publish"/>
+	<jstl:if test="${_command == 'publish'}">
+	   	<acme:submit code="any.peep.list.button.publish" action="/any/peep/publish"/>
+	</jstl:if>
+	
 	
 </acme:form>
 

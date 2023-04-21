@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.peeps.Peep;
 import acme.framework.components.accounts.Any;
+import acme.framework.helpers.MomentHelper;
 import acme.framework.services.AbstractService;
 
 @Service
@@ -21,34 +22,22 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 
 	@Override
 	public void check() {
-		boolean status;
 
-		status = super.getRequest().hasData("id", int.class);
-
-		super.getResponse().setChecked(status);
+		super.getResponse().setChecked(true);
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int peepId;
-		Peep peep;
 
-		peepId = super.getRequest().getData("id", int.class);
-		peep = this.repository.findOnePeepById(peepId);
-
-		status = peep != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Peep object;
-		int id;
+		final Peep object = new Peep();
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOnePeepById(id);
+		if (super.getRequest().getPrincipal().isAuthenticated())
+			object.setNick(super.getRequest().getPrincipal().getUsername());
 
 		super.getBuffer().setData(object);
 	}
@@ -58,13 +47,9 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 		assert object != null;
 
 		// Bind the text field
-		super.bind(object, "moment", "title", "messages", "email", "link");
+		super.bind(object, "title", "nick", "message", "email", "link");
+		object.setMoment(MomentHelper.getCurrentMoment());
 
-		// Set the nick based on the principal's authentication status
-		if (super.getRequest().getPrincipal().isAuthenticated())
-			object.setNick(super.getRequest().getPrincipal().getUsername());
-		else
-			object.setNick("");
 	}
 
 	@Override
@@ -84,6 +69,6 @@ public class AnyPeepPublishService extends AbstractService<Any, Peep> {
 		assert object != null;
 
 		// Return the peep object with the updated nick and text fields
-		super.getResponse().setData(super.unbind(object, "moment", "title", "nick", "messages", "email", "link"));
+		super.getResponse().setData(super.unbind(object, "moment", "title", "nick", "message", "email", "link"));
 	}
 }
