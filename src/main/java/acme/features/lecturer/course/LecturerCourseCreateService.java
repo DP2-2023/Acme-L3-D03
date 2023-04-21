@@ -81,17 +81,20 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 				object.setType(CourseType.THEORETICAL);
 			else
 				object.setType(CourseType.HANDS_ON);
+
 		object.setPublished(false);
 
 		// Currency conversion
 		final Money sourcePrice = super.getRequest().getData("price", Money.class);
-		final String ratesString = this.repository.findOneConfigByKey("currencyExchangeRates");
-		final String systemCurrency = this.repository.findOneConfigByKey("systemCurrency");
+		if (sourcePrice != null) {
+			final String ratesString = this.repository.findOneConfigByKey("currencyExchangeRates");
+			final String systemCurrency = this.repository.findOneConfigByKey("systemCurrency");
 
-		final CurrencyExchange currencyExchange = new CurrencyExchange(ratesString, systemCurrency);
-		final Money targetPrice = currencyExchange.exchange(sourcePrice);
-		if (targetPrice != null)
-			object.setPrice(targetPrice);
+			final CurrencyExchange currencyExchange = new CurrencyExchange(ratesString, systemCurrency);
+			final Money targetPrice = currencyExchange.exchange(sourcePrice);
+			if (targetPrice != null)
+				object.setPrice(targetPrice);
+		}
 
 	}
 
@@ -147,7 +150,10 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		final CurrencyExchange currencyExchange = new CurrencyExchange(ratesString, systemCurrency);
 
 		if (!super.getBuffer().getErrors().hasErrors("price"))
-			super.state(currencyExchange.isAcceptedCurrency(object.getPrice()), "price", "lecturer.course.form.error.not-accepted-currency");
+			if (object.getPrice() != null)
+				super.state(currencyExchange.isAcceptedCurrency(object.getPrice()), "price", "lecturer.course.form.error.not-accepted-currency");
+			else
+				super.state(object.getPrice() != null, "price", "lecturer.course.form.error.not-accepted-currency");
 	}
 
 	@Override
@@ -183,7 +189,6 @@ public class LecturerCourseCreateService extends AbstractService<Lecturer, Cours
 		choices = SelectChoices.from(lectures, "title", null);
 
 		tuple = super.unbind(object, "code", "title", "abstract$", "type", "price", "furtherInformation", "isPublished");
-		tuple.put("lectures", choices.getSelected().getKey());
 		tuple.put("lectures", choices);
 
 		super.getResponse().setData(tuple);
