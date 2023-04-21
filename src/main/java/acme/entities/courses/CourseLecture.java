@@ -6,6 +6,9 @@ import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import acme.entities.lectures.Lecture;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
@@ -29,6 +32,7 @@ public class CourseLecture extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	protected Course			course;
 
 	@NotNull

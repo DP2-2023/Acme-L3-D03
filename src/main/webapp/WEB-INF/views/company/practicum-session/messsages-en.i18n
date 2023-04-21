@@ -1,0 +1,33 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+company.practicumSession.form.label.title = Title
+company.practicumSession.form.label.abstract$ = Abstract
+company.practicumSession.form.label.sessionStartDate = Start Date
+company.practicumSession.form.label.sessionEndDate = End Date
+company.practicumSession.form.label.link = Link
+company.practicumSession.form.label.is-published = Published
+company.practicumSession.form.label.is-addendum = Addendum
+company.practicumSession.form.label.practicum = Practicum
+
+company.practicumSession.list.label.title = Title
+company.practicumSession.list.label.sessionStartDate = Start Date
+company.practicumSession.list.label.sessionEndDate = End Date
+
+company.practicumSession.list.button.create = Create
+
+
+company.practicumSession.form.button.update = Update
+company.practicumSession.form.button.delete = Delete
+company.practicumSession.form.button.publish = Publish
+company.practicumSession.form.button.create = Create
+
+
+

@@ -15,6 +15,13 @@ master.menu.sign-up = Sign up
 master.menu.sign-in = Sign in
 master.menu.sign-out = Sign out
 
+# master.menu.any #######################################################
+
+master.menu.any = Any
+master.menu.any.course.list = List courses
+master.menu.any.peep.list = List peeps
+master.menu.any.banner.list = Banners
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
@@ -25,25 +32,56 @@ master.menu.anonymous.favourite-link-5 = 76584962E: Ulecia García, Javier
 master.menu.anonymous.favourite-link-2 = 49121281C: García de la Vega García, Francisco
 
 
-
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.config = System config
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.administrator.bulletins.list = Bulletins
+master.menu.administrator.offers.list = Offers
+master.menu.administrator.banner.list = Banners
+
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.bulletins.list = Bulletins
+master.menu.authenticated.offers.list = Offers
+master.menu.authenticated = Authenticated
+master.menu.authenticated.practicum.list = List Practicum
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list-tutorial = List Tutorials
+
+# master.menu.company ###################################################
+master.menu.company = Company
+master.menu.company.practicum.list = List Practicum 
+master.menu.company.practicumSession.list = List Practicum Sessions
+master.menu.company.dashboard = Company dashboard
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
 master.menu.provider.favourite-link = Favourite link
 
+# master.menu.student #######################################################
+
+master.menu.student = Student
+master.menu.student.workbook.list = Workbook list
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.lecturer #######################################################
+
+master.menu.lecturer = Lecturer
+master.menu.lecturer.lecture.list = Lecture list
+master.menu.lecturer.course.list = Course list
+master.menu.lecturer.dashboard = Lecturer dashboard
 
 # master.menu.assistant ##########################################################
 master.menu.assistant = Assistant
@@ -60,7 +98,9 @@ master.menu.user-account.assistant = Assistant data
 master.menu.user-account.become-assistant = Become a assistant
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
-
-
-master.menu.authenticated = Authenticated
-master.menu.authenticated.list-tutorial = List Tutorials
+master.menu.user-account.become-company = Become a company
+master.menu.user-account.company = Company data
+master.menu.user-account.lecturer = Lecturer data
+master.menu.user-account.become-lecturer = Become a lecturer
+master.menu.user-account.student = Student data
+master.menu.user-account.become-student = Become a student
