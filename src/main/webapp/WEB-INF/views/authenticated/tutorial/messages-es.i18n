@@ -8,18 +8,18 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-assistant.tutorial.list.label.code = Código:
-assistant.tutorial.list.label.title = Título:
-assistant.tutorial.list.label.goals = Objetivo:
-assistant.tutorial.list.label.resume = Resumen:
-assistant.tutorial.form.label.estimatedTotalTime = Tiempo Total Estimado:
-assistant.tutorial.list.label.course-title = Título del Curso:
-assistant.tutorial.form.label.numSessions = Número de Sesiones:
+authenticated.tutorial.list.label.code = Código:
+authenticated.tutorial.list.label.title = Título:
+authenticated.tutorial.list.label.goals = Objetivo:
+authenticated.tutorial.list.label.resume = Resumen:
+authenticated.tutorial.form.label.estimatedTotalTime = Tiempo Total Estimado:
+authenticated.tutorial.list.label.course-title = Título del Curso:
+authenticated.tutorial.form.label.numSessions = Número de Sesiones:
 
 validation.tutorial.code = Ej: XXXX0000
 
-assistant.tutorial.list.button.create = Crear
-assistant.tutorial.form.button.create = Crear
+authenticated.tutorial.list.button.create = Crear
+authenticated.tutorial.form.button.create = Crear
 assistant.tutorial.form.button.update = Actualizar
 assistant.tutorial.form.button.delete = Eliminar
 

@@ -12,9 +12,9 @@ assistant.tutorial.list.label.code = Code:
 assistant.tutorial.list.label.title = Title:
 assistant.tutorial.list.label.goals = Goals:
 assistant.tutorial.list.label.resume = Resume:
-assistant.job.form.label.estimatedTotalTime = Estimated Total Time:
+assistant.tutorial.form.label.estimatedTotalTime = Estimated Total Time:
 assistant.tutorial.list.label.course-title = Course Title:
-assistant.job.form.label.numSessions = Number of Sessions:
+assistant.tutorial.form.label.numSessions = Number of Sessions:
 
 validation.tutorial.code = Ej: XXXX0000
 
