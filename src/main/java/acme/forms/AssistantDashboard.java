@@ -7,8 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
-public class assistantDashboards extends AbstractForm {
+public class AssistantDashboard extends AbstractForm {
 
 	// Serialisation identifier -----------------------------------------------
 

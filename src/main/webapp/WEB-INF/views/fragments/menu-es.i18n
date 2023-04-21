@@ -50,10 +50,10 @@ master.menu.administrator.banner.list = Banners
 master.menu.authenticated = Autenticados
 master.menu.authenticated.bulletins.list = Boletines
 master.menu.authenticated.offers.list = Ofertas
-
-# master.menu.authenticated ###################################################
 master.menu.authenticated = Autenticados
-master.menu.authenticated.practicum.list = Lista de prácticas 
+master.menu.authenticated.practicum.list = Lista de prácticas
+master.menu.authenticated = Autenticado
+master.menu.authenticated.list-tutorial = Lista Tutorias
 
 # master.menu.company ###################################################
 master.menu.company = Compañía
@@ -83,12 +83,19 @@ master.menu.lecturer.lecture.list = Ver clases
 master.menu.lecturer.course.list = Ver cursos
 master.menu.lecturer.dashboard = Panel de profesor
 
+# master.menu.assistant ##########################################################
+master.menu.assistant = Asistente
+master.menu.assistant.list-tutorial = Lista Tutorias
+master.menu.assistant.assistant-dashboard = Panel de indicadores
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.assistant = Datos asistente
+master.menu.user-account.become-assistant = Hazte asistente
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-company = Hazte compañía
@@ -97,3 +104,4 @@ master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
 master.menu.user-account.student = Datos de estudiante
 master.menu.user-account.become-student = Hazte estudiante
+
