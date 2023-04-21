@@ -7,13 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.constraints.Min;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.components.datatypes.Money;
 import acme.framework.data.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,11 +49,14 @@ public class Offer extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date				offerEndDate;
 
-	@Min(0)
-	protected Double			price;
+	@NotNull
+	@Valid
+	protected Money				price;
 
 	@URL
 	protected String			link;
+
+	protected boolean			published;
 
 	// Derived attributes -----------------------------------------------------
 

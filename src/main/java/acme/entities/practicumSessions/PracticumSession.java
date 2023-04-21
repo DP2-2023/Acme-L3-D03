@@ -48,6 +48,10 @@ public class PracticumSession extends AbstractEntity {
 	@URL
 	protected String			link;
 
+	protected boolean			isPublished;
+
+	protected boolean			isAddendum;
+
 	// Derived attributes -----------------------------------------------------
 
 
@@ -72,4 +76,9 @@ public class PracticumSession extends AbstractEntity {
 	@NotNull
 	@ManyToOne(optional = false)
 	protected Practicum practicum;
+
+	//	@Valid
+	//	@NotNull
+	//	@ManyToOne(optional = false)
+	//	protected Company company;
 }

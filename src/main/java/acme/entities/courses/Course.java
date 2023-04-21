@@ -41,7 +41,7 @@ public class Course extends AbstractEntity {
 	protected String			abstract$;
 
 	@Valid
-	public CourseType			courseType;
+	public CourseType			type;
 
 	@NotNull
 	@Valid
@@ -50,7 +50,7 @@ public class Course extends AbstractEntity {
 	@URL
 	protected String			furtherInformation;
 
-	protected boolean			published;
+	protected boolean			isPublished;
 
 	// Derived attributes -----------------------------------------------------
 

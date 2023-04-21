@@ -47,6 +47,8 @@ public class Practicum extends AbstractEntity {
 
 	protected Double			estimatedTotalTime;
 
+	protected boolean			isPublished;
+
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
