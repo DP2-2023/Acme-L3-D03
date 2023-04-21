@@ -63,6 +63,7 @@ public class AdministratorBulletinShowService extends AbstractService<Administra
 		Tuple tuple;
 
 		tuple = super.unbind(object, "moment", "title", "message", "critical", "link");
+		tuple.put("readonly", true);
 
 		super.getResponse().setData(tuple);
 	}
