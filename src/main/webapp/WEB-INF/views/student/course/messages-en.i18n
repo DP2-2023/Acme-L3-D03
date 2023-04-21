@@ -14,6 +14,8 @@ student.course.form.label.abstract$ = Abstract
 student.course.form.label.course-type = Type
 student.course.form.label.price = Price
 student.course.form.label.further-information = Further information
+student.course.form.label.lecture-name = Lecture Name
+student.course.form.label.lecturer-name = Lecturer Name
 
 student.course.list.label.code = Code
 student.course.list.label.title = Title

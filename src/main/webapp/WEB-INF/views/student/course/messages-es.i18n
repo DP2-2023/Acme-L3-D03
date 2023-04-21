@@ -14,6 +14,8 @@ student.course.form.label.abstract$ = Resumen
 student.course.form.label.course-type = Tipo
 student.course.form.label.price = Precio
 student.course.form.label.further-information = Más información
+student.course.form.label.lecture-name = Clase
+student.course.form.label.lecturer-name = Profesor
 
 student.course.list.label.code = Código
 student.course.list.label.title = Título
