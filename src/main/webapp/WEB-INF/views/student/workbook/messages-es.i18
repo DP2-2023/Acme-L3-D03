@@ -1,0 +1,28 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for lecturer particular
+# purposes.  The copyright owner does not offer lecturer warranties or representations, nor do
+# they accept lecturer liabilities with respect to them.
+
+student.workbook.form.label.title = Título
+student.workbook.form.label.abstract$ = Resumen
+student.workbook.form.label.type = Tipo
+student.workbook.form.label.timePeriod = Periodo de tiempo
+student.workbook.form.label.further-information = Más información
+
+
+student.workbook.form.button.update = Actualizar
+student.workbook.form.button.delete = Borrar
+student.workbook.form.button.publish = Publicar
+student.workbook.form.button.create = Crear
+
+student.workbook.list.label.title = Título
+student.workbook.list.label.type = Tipo
+student.workbook.list.label.timePeriod = Periodo de tiempo
+
+
+student.workbook.list.button.create = Crear
