@@ -33,7 +33,7 @@ public interface AssistantDashboardRepository extends AbstractRepository {
 	@Query("select max(s.periodEnd - s.periodStart) from Session s where s.tutorial.assistant.id = :assistantId")
 	Double maximumTimeOfHisSessions(int assistantId);
 
-	@Query("select count(t) from Tutorial t where t.assistant.id = :assistantId and t.course.courseType in ('THEORY', 'HANDS_ON')")
+	@Query("select count(t) from Tutorial t where t.assistant.id = :assistantId and t.course.type in ('THEORY', 'HANDS_ON')")
 	Double totalNumberOfTutorialsRegardingTheoryOrHandsonCourses(int assistantId);
 
 }
