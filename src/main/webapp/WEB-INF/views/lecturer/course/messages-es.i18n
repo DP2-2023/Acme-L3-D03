@@ -1,0 +1,43 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for lecturer particular
+# purposes.  The copyright owner does not offer lecturer warranties or representations, nor do
+# they accept lecturer liabilities with respect to them.
+
+lecturer.course.form.label.code = Código
+lecturer.course.form.label.title = Título
+lecturer.course.form.label.abstract$ = Resumen
+lecturer.course.form.label.type = Tipo
+lecturer.course.form.label.price = Precio
+lecturer.course.form.label.further-information = Más información
+lecturer.course.form.label.is-published = Publicado
+lecturer.course.form.label.lecture = Clase
+
+lecturer.course.form.button.update = Actualizar
+lecturer.course.form.button.delete = Borrar
+lecturer.course.form.button.create = Crear
+lecturer.course.form.button.publish = Publicar
+lecturer.course.form.button.add-lecture = Añadir clase
+lecturer.course.form.button.remove-lecture = Quitar clase
+lecturer.course.form.button.list-lectures = Ver clases
+
+lecturer.course.form.error.duplicated = El código de curso ya existe
+lecturer.course.form.error.negative-price = El precio no puede ser negativo
+lecturer.course.form.error.course-type = Un curso no puede contener sólo clases teóricas
+lecturer.course.form.error.lecture-number = Un curso debe contener al menos una clase
+lecturer.course.form.error.lecture = Debe seleccionar una clase
+lecturer.course.form.error.publish = Todas las clases del curso deben estar publicadas
+lecturer.course.form.error.practicum-in-course = No puede eliminar un curso con practicas asociadas
+lecturer.course.form.error.spam = No puede introducir spam
+lecturer.course.form.error.not-accepted-currency = La cantidad introducida no está en una moneda aceptada por el sistema
+
+lecturer.course.list.label.code = Código
+lecturer.course.list.label.title = Título
+lecturer.course.list.label.type = Tipo
+lecturer.course.list.label.is-published = Publicado
+
+lecturer.course.list.button.create = Crear
