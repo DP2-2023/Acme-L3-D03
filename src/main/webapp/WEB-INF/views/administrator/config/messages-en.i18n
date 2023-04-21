@@ -1,4 +1,4 @@
-# CHANGELOG.txt
+# messages-en.i18n
 #
 # Copyright (C) 2012-2023 Rafael Corchuelo.
 #
@@ -8,6 +8,10 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-Year 2023
+administrator.config.form.label.key = Key:
+administrator.config.form.label.value = Value:
 
-23.3	This is the first version of Acme-L3
+administrator.config.list.label.key = Key:
+administrator.config.list.label.value = Value:
+
+administrator.config.form.button.update =Update
