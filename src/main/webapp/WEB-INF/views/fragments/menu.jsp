@@ -22,8 +22,8 @@
 			<acme:menu-suboption code="master.menu.any.course.list" action="/any/course/list"/>
   			<acme:menu-suboption code="master.menu.any.peep.list" action="/any/peep/list"/>
 			<acme:menu-suboption code="master.menu.any.banner.list" action="/any/banner/list"/>
+			<acme:menu-suboption code="master.menu.any.course.list" action="/any/course/list"/>
 		</acme:menu-option>
-
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-1" action="https://www.wikipedia.org/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-3" action="https://www.dazn.com/es-ES/welcome"/>
@@ -77,6 +77,10 @@
 			<acme:menu-suboption code="master.menu.lecturer.dashboard" action="/lecturer/lecturer-dashboard/show"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.student" access="hasRole('Student')">
+			<acme:menu-suboption code="master.menu.student.course.list" action="/student/course/list"/>
+			<acme:menu-suboption code="master.menu.student.enrolment.list" action="/student/enrolment/list"/>
+		</acme:menu-option>
 	</acme:menu-left>
 
 	<acme:menu-right>
@@ -93,6 +97,8 @@
 			<acme:menu-suboption code="master.menu.user-account.company" action="/authenticated/company/update" access="hasRole('Company')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-lecturer" action="/authenticated/lecturer/create" access="!hasRole('Lecturer')"/>
 			<acme:menu-suboption code="master.menu.user-account.lecturer" action="/authenticated/lecturer/update" access="hasRole('Lecturer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-student" action="/authenticated/student/create" access="!hasRole('Student')"/>
+			<acme:menu-suboption code="master.menu.user-account.student" action="/authenticated/student/update" access="hasRole('Student')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

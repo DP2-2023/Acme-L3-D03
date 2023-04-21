@@ -66,6 +66,11 @@ master.menu.company.dashboard = Panel de compañía
 master.menu.provider = Proveedor
 master.menu.provider.favourite-link = Enlace favorito
 
+# master.menu.student #######################################################
+
+master.menu.student = Estudiante
+master.menu.student.workbook.list = Ver Libro de Trabajo
+
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
@@ -90,3 +95,5 @@ master.menu.user-account.become-company = Hazte compañía
 master.menu.user-account.company = Datos de compañía
 master.menu.user-account.lecturer = Datos de profesor
 master.menu.user-account.become-lecturer = Hazte profesor
+master.menu.user-account.student = Datos de estudiante
+master.menu.user-account.become-student = Hazte estudiante
