@@ -1,5 +1,5 @@
 /*
- * AuthenticatedLecturerRepository.java
+ * AuthenticatedStudentRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -37,7 +37,11 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRole(Student.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -83,7 +87,7 @@ public class AuthenticatedStudentUpdateService extends AbstractService<Authentic
 
 		Tuple tuple;
 
-		tuple = BinderHelper.unbind(object, "statement", "strongFeatures", "weeakFeatures", "furtherInformation");
+		tuple = BinderHelper.unbind(object, "statement", "strongFeatures", "weakFeatures", "furtherInformation");
 		super.getResponse().setData(tuple);
 	}
 

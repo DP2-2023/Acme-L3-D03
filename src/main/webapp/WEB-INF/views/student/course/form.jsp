@@ -22,4 +22,6 @@
 	<acme:input-textbox code="student.course.form.label.course-type" path="courseType"/>
 	<acme:input-money code="student.course.form.label.price" path="price"/>
 	<acme:input-url code="student.course.form.label.further-information" path="furtherInformation"/>
+	<acme:input-textbox code="student.course.form.label.lecture-name" path="lecture.name"/>
+<acme:input-textbox code="student.course.form.label.lecturer-name" path="lecturer.name"/>
 </acme:form>

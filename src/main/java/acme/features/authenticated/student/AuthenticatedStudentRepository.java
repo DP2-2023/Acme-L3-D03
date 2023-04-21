@@ -1,5 +1,5 @@
 /*
- * AuthenticatedLecturerRepository.java
+ * AuthenticatedStudentRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -25,7 +25,7 @@ public interface AuthenticatedStudentRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select c from Lecturer c where c.userAccount.id = :id")
+	@Query("select c from Student c where c.userAccount.id = :id")
 	Student findOneStudentByUserAccountId(int id);
 
 }

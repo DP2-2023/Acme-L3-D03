@@ -1,5 +1,5 @@
 /*
- * AnyCourseRepository.java
+ * StudentCourseRepository.java
  *
  * Copyright (C) 2012-2023 Rafael Corchuelo.
  *
@@ -18,7 +18,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.courses.Course;
+import acme.entities.courses.CourseLecture;
+import acme.entities.lectures.Lecture;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Lecturer;
 
 @Repository
 public interface StudentCourseRepository extends AbstractRepository {
@@ -28,5 +31,14 @@ public interface StudentCourseRepository extends AbstractRepository {
 
 	@Query("select j from Course j where j.published = true")
 	Collection<Course> findAllCourses();
+
+	@Query("select cl.lecture from CourseLecture cl where cl.course=:id")
+	Lecture findOneLectureByCourseId(int id);
+
+	@Query("select cl.lecture.lecturer from CourseLecture cl where cl.course=:id")
+	Lecturer findOneLecturerByCourseId(int id);
+
+	@Query("select cl from CourseLecture cl where cl.course.id=:id")
+	Collection<CourseLecture> findOneCourseLectureByCourseId(int id);
 
 }
