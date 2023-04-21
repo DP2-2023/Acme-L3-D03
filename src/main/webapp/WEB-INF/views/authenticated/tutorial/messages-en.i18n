@@ -1,0 +1,27 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2023 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.tutorial.list.label.code = Code:
+authenticated.tutorial.list.label.title = Title:
+authenticated.tutorial.list.label.goals = Goals:
+authenticated.tutorial.list.label.resume = Resume:
+authenticated.tutorial.form.label.estimatedTotalTime = Estimated Total Time:
+authenticated.tutorial.list.label.course-title = Course Title:
+authenticated.tutorial.form.label.numSessions = Number of Sessions:
+authenticated.tutorial.form.label.assistant = Assitant:
+
+validation.tutorial.code = Ej: XXXX0000
+
+authenticated.tutorial.list.button.create = Create
+authenticated.tutorial.form.button.create = Create
+authenticated.tutorial.form.button.update = Update
+authenticated.tutorial.form.button.delete = Delete
+
+authenticated.tutorial.form.error.negative-estimatedTotalTime = The estimated total time must be positive

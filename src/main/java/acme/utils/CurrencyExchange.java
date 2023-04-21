@@ -31,9 +31,21 @@ public class CurrencyExchange {
 		if (!this.rates.containsKey(source.getCurrency()))
 			return null;
 		final Money target = new Money();
-		target.setAmount(source.getAmount() * this.rates.get(this.systemCurrency));
+		target.setAmount(source.getAmount() * this.rates.get(source.getCurrency()));
 		target.setCurrency(this.systemCurrency);
 		return target;
+	}
+
+	public boolean isAcceptedCurrency(final Money source) {
+		return this.rates.containsKey(source.getCurrency());
+	}
+
+	public Map<String, Double> getRates() {
+		return this.rates;
+	}
+
+	public String getSystemCurrency() {
+		return this.systemCurrency;
 	}
 
 }
