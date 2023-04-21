@@ -50,10 +50,9 @@ master.menu.administrator.banner.list = Banners
 master.menu.authenticated = Authenticated
 master.menu.authenticated.bulletins.list = Bulletins
 master.menu.authenticated.offers.list = Offers
-master.menu.authenticated = Authenticated
 master.menu.authenticated.practicum.list = List Practicum
-master.menu.authenticated = Authenticated
 master.menu.authenticated.list-tutorial = List Tutorials
+master.menu.authenticated.note = Notes
 
 # master.menu.company ###################################################
 master.menu.company = Company
@@ -104,3 +103,4 @@ master.menu.user-account.lecturer = Lecturer data
 master.menu.user-account.become-lecturer = Become a lecturer
 master.menu.user-account.student = Student data
 master.menu.user-account.become-student = Become a student
+

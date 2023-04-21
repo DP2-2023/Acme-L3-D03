@@ -1,0 +1,17 @@
+authenticated.notes.list.label.title = title
+authenticated.notes.list.label.moment = moment
+authenticated.notes.list.label.author = author
+authenticated.notes.list.label.message = message
+
+
+authenticated.notes.form.label.title = title
+authenticated.notes.form.label.moment = moment
+authenticated.notes.form.label.author = author
+authenticated.notes.form.label.message = message
+authenticated.notes.form.label.email = email
+authenticated.notes.form.label.link = link
+
+authenticated.notes.list.button.create = Create
+authenticated.notes.form.button.create = Create
+
+authenticated.notes.form.label.confirmation = Confirm
